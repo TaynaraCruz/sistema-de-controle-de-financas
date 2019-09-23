@@ -3,7 +3,7 @@
         <v-layout row wrap justify-space-between>
             <v-flex md4>
                 <v-card-text class="white--text">
-                    <h2>BuzzHero</h2>
+                    <h2>Housefly</h2>
                 </v-card-text>
             </v-flex>
             <v-flex md2>
@@ -21,13 +21,13 @@
                     <h3>—</h3>
                 </v-card-text>
                 <v-card-text class="white--text">
-                    Pedro Kfuri<br>
+                    José Oliveira<br>
                     Taynara Cruz
                 </v-card-text>
             </v-flex>
             <v-flex md4 align-self-center>
                 <v-card-text class="pt-4 white--text text-xs-center">
-                    <p class="display-3 font-weight-bold">IBD</p>
+                    <p class="display-3 font-weight-bold">Engenharia de Software</p>
                 </v-card-text>
             </v-flex>
             <v-flex grey darken-3 py-1 text-xs-center white--text xs12>

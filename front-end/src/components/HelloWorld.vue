@@ -6,7 +6,7 @@
     >
       <v-flex xs12>
         <v-img
-          :src="require('../assets/logo.svg')"
+          :src="require('../assets/logo.png')"
           class="my-3"
           contain
           height="200"
@@ -15,12 +15,12 @@
 
       <v-flex mb-4>
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+          Bem Vindo a Housefly
         </h1>
         <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
+          Este projeto é uma colaboração de alunos da classe de Engenharia de Software de 2019 da UFMG. 
+          <br> Nosso sistema disponibiliza um ambiente online para administrar contas e finanças de uma ou mais casas dentre diferentes usuários. Aproveitem! 
+          
         </p>
       </v-flex>
 
