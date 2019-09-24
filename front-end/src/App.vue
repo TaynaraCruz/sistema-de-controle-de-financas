@@ -43,19 +43,23 @@ export default {
         links: [{
             to: '/',
             icon: 'mdi-home',
-            text: 'Teste',
+            text: 'Home',
         }, {
-            to: '/estatisticas',
-            icon: 'mdi-chart-areaspline',
-            text: 'Estatísticas',
+            to: '/login',
+            icon: 'mdi-account',
+            text: 'Login',
         }, {
             to: '/herois',
-            icon: 'mdi-account',
+            icon: 'mdi-chart-areaspline',
             text: 'Heróis',
         }, {
             to: '/sobre',
             icon: 'mdi-star',
             text: 'Sobre',
+        },{
+            to: '/profile',
+            icon: 'mdi-account',
+            text: 'Perfil',
         }]
     }),
     methods: {
