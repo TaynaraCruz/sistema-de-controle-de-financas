@@ -22,16 +22,13 @@
             </v-btn>
         </v-app-bar>
 
-        <v-content>
+        <v-content class="fill-height">
             <transition name="fade" mode="out-in">
                 <router-view />
             </transition>
         </v-content>
-
-        <v-footer app absolute class="font-weight-medium">
-            <v-col class="text-center" cols="12">
-                {{ new Date().getFullYear() }} — <a class="footer-a" href="https://011235.xyz" target="_blank"><strong>お金師団</strong></a>
-            </v-col>
+        <v-footer app absolute>
+            <div class="text-center" style="width: 100%;">&copy; {{ new Date().getFullYear() }} — <a class="footer-a" href="https://011235.xyz" target="_blank"><strong>お金師団</strong></a></div>
         </v-footer>
     </v-app>
 </template>
