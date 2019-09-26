@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     .fade-leave-active,
     .fade-enter-active {
         transition: 0.25s;
@@ -84,7 +84,9 @@ export default {
         transform: translateY(3vh);
         opacity: 0;
     }
+</style>
 
+<style scoped>
     .footer-a {
         color: inherit;
         text-decoration: none;
