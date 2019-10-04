@@ -1,0 +1,33 @@
+Table User {
+  id int [pk, increment]
+  name varchar [not null]
+  income decimal [not null]
+  email varchar [not null]
+  password varchar [not null]
+}
+
+Table LiveIn {
+  user_id int [pk, ref: > User.id]
+  house_id int [pk, ref: > House.id]
+}
+
+Table House {
+  id int [pk, increment]
+  name varchar [not null]
+  admin_id int [not null, ref: > User.id]
+}
+
+Table Expense {
+  id int [pk,increment]
+  name varchar [not null]
+  date date [not null]
+  value decimal [not null]
+  house_id int [not null, ref: > House.id]
+}
+
+Table Payment {
+  user_id int [pk, ref: > User.id]
+  house_id int [pk, ref: > House.id]
+  date date [not null]
+  value dacimal [not null]
+}
