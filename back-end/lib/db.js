@@ -1,12 +1,13 @@
 const mysql = require('serverless-mysql')
+const { DB_HOST, DB_NAME, DB_USER, DB_PASS, DB_PORT } = require('./constants');
 
 const db = mysql({
   config: {
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    port: process.env.DB_PORT
+    host: DB_HOST,
+    database: DB_NAME,
+    user: DB_USER,
+    password: DB_PASS,
+    port: DB_PORT,
   }
 })
 

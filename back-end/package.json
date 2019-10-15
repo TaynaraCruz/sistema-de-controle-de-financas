@@ -2,7 +2,11 @@
   "name": "back-end",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=10.16.0"
+  },
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "serverless-mysql": "^1.5.1",
     "sql-template-strings": "^2.2.2"
   }
