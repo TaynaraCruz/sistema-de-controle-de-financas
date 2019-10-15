@@ -22,7 +22,7 @@
             </v-btn>
         </v-app-bar>
 
-        <v-content class="fill-height">
+        <v-content class="fill-height pa-0">
             <transition name="fade" mode="out-in">
                 <router-view />
             </transition>
