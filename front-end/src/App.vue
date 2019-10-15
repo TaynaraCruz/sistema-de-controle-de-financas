@@ -46,9 +46,9 @@ export default {
             icon: 'mdi-account',
             text: 'Login',
         }, {
-            to: '/herois',
+            to: '/manage',
             icon: 'mdi-chart-areaspline',
-            text: 'Heróis',
+            text: 'Gerenciar Casas',
         }, {
             to: '/sobre',
             icon: 'mdi-star',
