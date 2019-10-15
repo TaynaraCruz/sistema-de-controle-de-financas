@@ -3,7 +3,8 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Login from "./views/LoginPage.vue";
 import Profile from "./views/Profile.vue";
-import SignUp from "./components/SignUp.vue"
+import SignUp from "./components/SignUp.vue";
+import ManageHouses from "./views/ManageHouses.vue";
 
 Vue.use(Router);
 
@@ -42,6 +43,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
-    }
+    }, 
+    {
+      path: "/manage",
+      name: "manage",
+      component: ManageHouses,
+    },
   ]
 });
