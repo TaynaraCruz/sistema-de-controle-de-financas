@@ -7,8 +7,9 @@ CREATE TABLE `User` (
 );
 
 CREATE TABLE `LiveIn` (
-  `user_id` int PRIMARY KEY,
-  `house_id` int PRIMARY KEY
+  `user_id` int,
+  `house_id` int,
+  PRIMARY KEY(`user_id`,`house_id`)
 );
 
 CREATE TABLE `House` (
@@ -26,10 +27,11 @@ CREATE TABLE `Expense` (
 );
 
 CREATE TABLE `Payment` (
-  `user_id` int PRIMARY KEY,
-  `house_id` int PRIMARY KEY,
+  `user_id` int,
+  `house_id` int,
   `date` date NOT NULL,
-  `value` dacimal NOT NULL
+  `value` decimal NOT NULL,
+  PRIMARY KEY(`user_id`,`house_id`)
 );
 
 ALTER TABLE `LiveIn` ADD FOREIGN KEY (`user_id`) REFERENCES `User` (`id`);

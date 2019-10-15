@@ -1,7 +1,9 @@
 {
   "name": "back-end",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Taynara Cruz",
-  "license": "MIT"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "serverless-mysql": "^1.5.1",
+    "sql-template-strings": "^2.2.2"
+  }
 }
