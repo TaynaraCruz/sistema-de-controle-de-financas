@@ -57,7 +57,13 @@ export default {
             to: '/profile',
             icon: 'mdi-account',
             text: 'Perfil',
-        }]
+        },{
+            to: '/payment',
+            icon: 'mdi-coin',
+            text: 'Registrar Pagamento',
+        }
+        
+        ]
     }),
     methods: {
         invertColors() {
