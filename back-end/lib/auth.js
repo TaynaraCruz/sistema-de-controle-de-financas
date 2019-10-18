@@ -5,11 +5,10 @@ const { JWT_SECRET } = require('./constants');
 const sha256 = str => crypto.createHash('sha256').update(str).digest('hex');
 
 function signToken (payload) {
-    jwt.sign(payload, JWT_SECRET, {
+    return jwt.sign(payload, JWT_SECRET, {
         algorithm: 'HS256',
         expiresIn: '3h',
     });
-    return payload;
 };
 
 function verifyToken (token) {
@@ -29,7 +28,7 @@ function auth (req) {
     if (type != 'Bearer') return false;
 
     try {
-        req.auth = verifyToken(token);
+        req.user = verifyToken(token);
         return true;
     } catch (err) {
         return false;
@@ -37,7 +36,7 @@ function auth (req) {
 }
 
 function unauthorizedHandler (req, res) {
-    res.status(401).header('WWW-Authenticate', 'Bearer').json({ error: { errorMessage: 'Unauthorized' }});
+    return res.status(401).json({ error: 'unauthorized' });
 }
 
 const ifAuth = handle => (req, res) => auth(req) ? handle(req, res) : unauthorizedHandler(req, res);
