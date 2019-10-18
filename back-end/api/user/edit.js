@@ -4,11 +4,11 @@ const SQL = require('sql-template-strings');
 
 module.exports = ifAuth(async (req, res) => {
     if (typeof req.body !== 'object') {
-        return res.status(400).json({error: 'Invalid request'})
+        return res.status(400).json({error: 'invalid request'})
     }
     const { id, name, income, email, password } = req.body;
     if (!id || !name || !income || !email) {
-        return res.status(400).json({error: 'Incomplete form'});
+        return res.status(400).json({error: 'incomplete form'});
     } else if (+id !== req.user.id) {
         return res.status(403).json({error: 'forbidden'});
     }

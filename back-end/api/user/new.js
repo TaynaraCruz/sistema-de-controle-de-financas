@@ -4,11 +4,11 @@ const SQL = require('sql-template-strings');
 
 module.exports = async (req, res) => {
     if (typeof req.body !== 'object') {
-        return res.status(400).json({error: 'Invalid request'})
+        return res.status(400).json({error: 'invalid request'})
     }
     const { name, income, email, password } = req.body;
     if (!name || !income || !email || !password) {
-        return res.status(400).json({error: 'Incomplete form'});
+        return res.status(400).json({error: 'incomplete form'});
     }
     let result = await db.query(SQL`insert into User (name, income, email, password) values (${name}, ${income}, ${email}, ${sha256(password)});`);
     if (result.error) {
