@@ -38,7 +38,7 @@
       <v-checkbox
         v-model="checkbox"
         :rules="[v => !!v || 'You must agree to continue!']"
-        label="Você concorda que nosso projeto é bonito?"
+        label="Você concorda com os termos de uso?"
         required
       ></v-checkbox>
   

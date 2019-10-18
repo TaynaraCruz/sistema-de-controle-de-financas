@@ -65,6 +65,10 @@ export default {
             to: '/newexpense',
             icon: 'mdi-square-inc-cash',
             text: 'Nova Despesa',
+        },{
+            to: '/adduser',
+            icon: 'mdi-account-multiple-plus',
+            text: 'Adicionar Usuário',
         }
         
         ]
