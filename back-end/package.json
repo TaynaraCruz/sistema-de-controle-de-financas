@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=10.16.0"
+    "node": "10.x"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
