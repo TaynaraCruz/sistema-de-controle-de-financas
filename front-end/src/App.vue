@@ -61,6 +61,10 @@ export default {
             to: '/payment',
             icon: 'mdi-coin',
             text: 'Registrar Pagamento',
+        },{
+            to: '/newexpense',
+            icon: 'mdi-square-inc-cash',
+            text: 'Nova Despesa',
         }
         
         ]
