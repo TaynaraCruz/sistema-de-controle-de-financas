@@ -6,6 +6,7 @@ import Profile from "./views/Profile.vue";
 import SignUp from "./components/SignUp.vue";
 import ManageHouses from "./views/ManageHouses.vue";
 import RegisterPayment from "./views/RegisterPayment.vue";
+import NewExpense from "./views/NewExpense.vue";
 
 Vue.use(Router);
 
@@ -53,6 +54,11 @@ export default new Router({
     {
       path: "/payment",
       name: "payment",
+      component: RegisterPayment,
+    },
+    {
+      path: "/newexpense",
+      name: "newexpense",
       component: RegisterPayment,
     },
   ]
