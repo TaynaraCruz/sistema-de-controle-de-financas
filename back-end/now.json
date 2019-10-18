@@ -1,8 +1,4 @@
 {
       "name": "sistema-de-controle-de-financas-api",
-      "version": 2,
-      "builds": [{
-           "src": "api/**",
-           "use": "@now/node"
-      }]
+      "version": 2
 }
