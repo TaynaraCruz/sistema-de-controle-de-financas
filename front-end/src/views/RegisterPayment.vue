@@ -14,7 +14,7 @@
         <v-col cols="4">
           <v-text-field
             label="Nome da despesa"
-            prepend-icon="mdi-account-check"
+            prepend-icon="mdi-tooltip-edit"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -50,7 +50,7 @@
             <v-text-field
               v-model="date"
               label="Escolha a data do vencimento:"
-              prepend-icon="mdi-calendar"
+              prepend-icon="mdi-calendar-clock"
               readonly
               v-on="on"
             ></v-text-field>
@@ -80,7 +80,7 @@
         <v-col cols="4">
           <v-text-field
             label="Valor"
-            prepend-icon="mdi-account-check"
+            prepend-icon="mdi-cash-usd"
             value="0.00"
             prefix="R$"
           ></v-text-field>
@@ -90,7 +90,7 @@
         <v-col cols="4">
           <v-text-field
             label="Categoria"
-            prepend-icon="mdi-account-check"
+            prepend-icon="mdi-tag-text-outline"
           ></v-text-field>
         </v-col>
       </v-row>
@@ -101,6 +101,8 @@
         <v-radio label="Única" value="radio-2"></v-radio>
       </v-radio-group>
       </v-row>
+      
+    <v-row  justify="center"> 
       <v-col cols="12" sm="6" >
           <v-textarea 
             label="Descrição"
@@ -112,8 +114,10 @@
             rows="3"
             row-height="35"
             shaped
+            justify="center"
           ></v-textarea>
         </v-col>
+      </v-row>
         
     <v-col cols="32" sm="36" md="34">
       <v-card-actions class="justify-center">
@@ -123,7 +127,7 @@
       </v-card-actions>
     </v-col>  
 
-
+ 
      </form>
      
   </v-app>
