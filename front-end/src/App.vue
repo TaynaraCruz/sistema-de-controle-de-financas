@@ -69,7 +69,7 @@ export default {
             to: '/adduser',
             icon: 'mdi-account-multiple-plus',
             text: 'Adicionar Usuário',
-        }
+        },
         
         ]
     }),
