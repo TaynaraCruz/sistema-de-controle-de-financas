@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     if (result.error) {
         return res.status(500).json({error: 'Internal server error: '+result.error.toString()});
     } else if (result.length === 0){
-        return res.status(404).json({error: 'not found'});
+        return res.status(404).json({error: 'invalid email or password'});
     } else {
         let user = {
             id: result[0].id,
