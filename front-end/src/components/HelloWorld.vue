@@ -7,20 +7,25 @@
 
             <v-flex mb-4>
                 <h1 class="display-2 font-weight-bold">
-                    Houseflyへようこそ！
+                    Bem-vindo ao Housefly!
                 </h1>
-                <div class="mb-3"><small>Bem-vindo ao Housefly!</small></div>
+                <br>
+                <br>
+                <div class="mb-3">Compartilhe despesas, administre as finanças de múltiplas casas e organize seus gastos. <br>O sistema do Housefly é inteiramente gratuito e, ao criar uma conta, os usuários tem acesso a todas as funcionalidades. <br><br>Aproveitem!<small></small></div>
                 <br>
                 <p class="subheading font-weight-regular">
-                    このプロジェクトは、UFMGの2019ソフトウェアエンジニアリングクラスの学生のコラボレーションです。
-                    <br>
-                    <small>Este projeto é uma colaboração de alunos da classe de Engenharia de Software de 2019 da UFMG.</small>
                     <br>
                     <br>
-                    当社のシステムは、異なるユーザー間で1つ以上の家のアカウントと財務を管理するためのオンライン環境を提供します。 お楽しみください！
                     <br>
-                    <small>Nosso sistema disponibiliza um ambiente online para administrar contas e finanças de uma ou mais casas dentre diferentes usuários. Aproveitem!</small>
-
+ 
+                    <v-carousel :show-arrows="false" height="800px" width="100px">
+                        <v-carousel-item 
+                            v-for="(item,i) in items"
+                            :key="i"
+                            :src="item.src"
+                        ></v-carousel-item>
+                    </v-carousel>
+      
                 </p>
             </v-flex>
         </v-layout>
@@ -78,6 +83,18 @@
                 },
             ],
         }),
+         data () {
+    return {
+      items: [
+        {
+          src: require('../assets/tela3.png'),
+        },
+        {
+          src: require('../assets/tela4.png'),
+        },
+      ],
+    }
+  },
     };
 
 </script>
