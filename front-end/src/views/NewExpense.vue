@@ -6,19 +6,20 @@
         <v-flex xs12>
                 <v-img :src="require('../assets/logo.png')" class="my-3" contain height="200"></v-img>
             </v-flex>
-        Registrar Pagamento
+        Adicionar nova despesa
       </v-row>
     </h3>
     <form>
       <v-row  justify="center"> 
         <v-col cols="4">
           <v-text-field
-            label="Membro"
-            prepend-icon="mdi-account-check"
+            label="Nome da despesa"
+            prepend-icon="mdi-tooltip-edit"
           ></v-text-field>
         </v-col>
       </v-row>
     <v-row>
+
       <v-col cols="12" sm="6" md="4">
         <v-menu
           ref="menu"
@@ -48,8 +49,8 @@
           <template v-slot:activator="{ on }">
             <v-text-field
               v-model="date"
-              label="Escolha a data do pagamento:"
-              prepend-icon="mdi-calendar"
+              label="Escolha a data do vencimento:"
+              prepend-icon="mdi-calendar-clock"
               readonly
               v-on="on"
             ></v-text-field>
@@ -74,13 +75,59 @@
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
+
+      <v-row class="justify-center">
+        <v-col cols="4">
+          <v-text-field
+            label="Valor"
+            prepend-icon="mdi-cash-usd"
+            value="0.00"
+            prefix="R$"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    <v-row  justify="center"> 
+        <v-col cols="4">
+          <v-text-field
+            label="Categoria"
+            prepend-icon="mdi-tag-text-outline"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+
+    <v-row  justify="center"> 
+      <v-radio-group v-model="row" row>
+        <v-radio label="Fixa" value="radio-1"></v-radio>
+        <v-radio label="Única" value="radio-2"></v-radio>
+      </v-radio-group>
+      </v-row>
+      
+    <v-row  justify="center"> 
+      <v-col cols="12" sm="6" >
+          <v-textarea 
+            label="Descrição"
+            auto-grow
+            outlined
+            filled
+            vertical-align: middle
+            align-center
+            rows="3"
+            row-height="35"
+            shaped
+            justify="center"
+          ></v-textarea>
+        </v-col>
+      </v-row>
+        
     <v-col cols="32" sm="36" md="34">
       <v-card-actions class="justify-center">
         <v-btn primary>
-          Registrar
+          Criar
         </v-btn>
       </v-card-actions>
     </v-col>  
+
+ 
      </form>
      
   </v-app>

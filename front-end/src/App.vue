@@ -69,6 +69,10 @@ export default {
             to: '/adduser',
             icon: 'mdi-account-multiple-plus',
             text: 'Adicionar Usuário',
+        },{
+            to: '/statistics',
+            icon: 'mdi-chart-line',
+            text: 'Histórico de Despesas',
         },
         
         ]

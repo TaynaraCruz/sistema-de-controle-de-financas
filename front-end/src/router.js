@@ -8,6 +8,7 @@ import ManageHouses from "./views/ManageHouses.vue";
 import RegisterPayment from "./views/RegisterPayment.vue";
 import NewExpense from "./views/NewExpense.vue";
 import AddUser from "./views/AddUser.vue";
+import Statistics from "./views/Statistics.vue";
 
 Vue.use(Router);
 
@@ -60,12 +61,17 @@ export default new Router({
     {
       path: "/newexpense",
       name: "newexpense",
-      component: RegisterPayment,
+      component: NewExpense,
     },
     {
       path: "/adduser",
       name: "adduser",
       component: AddUser,
+    },
+    {
+      path: "/statistics",
+      name: "statistics",
+      component: Statistics,
     },
   ]
 });
