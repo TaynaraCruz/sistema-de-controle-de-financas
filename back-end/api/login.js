@@ -4,15 +4,15 @@ const SQL = require('sql-template-strings');
 
 module.exports = async (req, res) => {
     if (typeof req.body !== 'object') {
-        return res.status(400).json({error: 'Invalid request'});
+        return res.status(400).json({error: 'invalid request'});
     }
     const { email, password } = req.body;
     if (!email || !password) {
-        return res.status(400).json({error: 'Incomplete form'});
+        return res.status(400).json({error: 'incomplete form'});
     }
     let result = await db.query(SQL`select * from User where email=${email} and password=${sha256(password)};`);
     if (result.error) {
-        return res.status(500).json({error: 'Internal server error: '+result.error.toString()});
+        return res.status(500).json({error: 'internal server error: '+result.error.toString()});
     } else if (result.length === 0){
         return res.status(404).json({error: 'invalid email or password'});
     } else {
