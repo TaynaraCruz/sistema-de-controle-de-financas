@@ -15,9 +15,12 @@
                 <br>
                 <p class="subheading font-weight-regular">
                     <br>
+                    <v-btn round :href="`https://twitter.com/intent/tweet?text=Estou usando Housefly para administrar meus gastos, chega de boleto atrasado lá em casa! Acesse também em !`" color="blue" dark target="_blank">Compartilhar no Twitter</v-btn>
+                    
                     <br>
                     <br>
- 
+                    
+
                     <v-carousel :show-arrows="false" height="800px" width="100px">
                         <v-carousel-item 
                             v-for="(item,i) in items"
