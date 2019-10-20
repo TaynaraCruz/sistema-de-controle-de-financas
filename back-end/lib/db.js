@@ -20,3 +20,6 @@ exports.query = async query => {
     return { error };
   }
 }
+
+exports.transaction = db.transaction;
+exports.end = db.end;
