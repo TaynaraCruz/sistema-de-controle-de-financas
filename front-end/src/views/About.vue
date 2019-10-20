@@ -76,11 +76,6 @@
                   </v-card>
                 </v-row>
                 <br>
-
-
- 
-      
-                </p>
             </v-flex>
         </v-layout>
     </v-container>

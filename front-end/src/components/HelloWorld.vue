@@ -11,7 +11,7 @@
                 </h1>
                 <br>
                 <br>
-                <div class="mb-3">Compartilhe despesas, administre as finanças de múltiplas casas e organize seus gastos. <br>O sistema do Housefly é inteiramente gratuito e, ao criar uma conta, os usuários tem acesso a todas as funcionalidades. <br><br>Aproveitem!<small></small></div>
+                <div class="mb-3">Compartilhe despesas, administre as finanças de múltiplas casas e organize seus gastos. <br>O sistema do Housefly é inteiramente gratuito e, ao criar uma conta, os usuários tem acesso a todas as funcionalidades. <br><br><strong>Aproveitem!</strong><small></small></div>
                 <br>
                 <p class="subheading font-weight-regular">
                     <br>
