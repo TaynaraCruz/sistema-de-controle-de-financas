@@ -126,7 +126,12 @@
         </v-btn>
       </v-card-actions>
     </v-col>  
-
+    <v-card-actions class="justify-center">
+        <v-btn primary color="success">
+          Voltar
+        </v-btn>
+      </v-card-actions>
+    <br>
  
      </form>
      

@@ -81,6 +81,11 @@
         </v-btn>
       </v-card-actions>
     </v-col>  
+    <v-card-actions class="justify-center">
+        <v-btn primary color="success" to="/members">
+          Voltar
+        </v-btn>
+      </v-card-actions>
      </form>
 
   </v-app>
