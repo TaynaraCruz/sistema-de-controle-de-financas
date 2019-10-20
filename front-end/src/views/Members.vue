@@ -60,12 +60,12 @@
         </v-btn>
       </v-card-actions>
       <v-card-actions class="justify-center">
-        <v-btn primary color="warning"> 
+        <v-btn primary color="warning" to="/payment"> 
           Registrar Pagamento
         </v-btn>
       </v-card-actions>
       <v-card-actions class="justify-right">
-        <v-btn primary color="info">
+        <v-btn primary color="info" to="/adduser">
           Adicionar Membro
         </v-btn>
       </v-card-actions>

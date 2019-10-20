@@ -11,13 +11,16 @@
                 </h1>
                 <br>
                 <br>
-                <div class="mb-3">Compartilhe despesas, administre as finanças de múltiplas casas e organize seus gastos. <br>O sistema do Housefly é inteiramente gratuito e, ao criar uma conta, os usuários tem acesso a todas as funcionalidades. <br><br>Aproveitem!<small></small></div>
+                <div class="mb-3">Compartilhe despesas, administre as finanças de múltiplas casas e organize seus gastos. <br>O sistema do Housefly é inteiramente gratuito e, ao criar uma conta, os usuários tem acesso a todas as funcionalidades. <br><br><strong>Aproveitem!</strong><small></small></div>
                 <br>
                 <p class="subheading font-weight-regular">
                     <br>
+                    <v-btn round :href="`https://twitter.com/intent/tweet?text=Estou usando Housefly para administrar meus gastos, chega de boleto atrasado lá em casa! Acesse também em !`" color="blue" dark target="_blank">Compartilhar no Twitter</v-btn>
+                    
                     <br>
                     <br>
- 
+                    
+
                     <v-carousel :show-arrows="false" height="800px" width="100px">
                         <v-carousel-item 
                             v-for="(item,i) in items"

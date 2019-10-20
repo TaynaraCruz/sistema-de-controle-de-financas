@@ -31,7 +31,7 @@
         </v-btn>
       </v-card-actions>
       <v-card-actions class="justify-center">
-        <v-btn primary color="success">
+        <v-btn primary color="success" to="/members">
           Voltar
         </v-btn>
       </v-card-actions>
