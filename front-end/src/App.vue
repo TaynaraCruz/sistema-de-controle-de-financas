@@ -50,7 +50,7 @@ export default {
             icon: 'mdi-chart-areaspline',
             text: 'Gerenciar Casas',
         }, {
-            to: '/sobre',
+            to: '/about',
             icon: 'mdi-star',
             text: 'Sobre',
         },{
