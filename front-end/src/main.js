@@ -14,5 +14,6 @@ new Vue({
         menu: false,
         modal: false,
         menu2: false,
+        dialog: false,
       }),
 }).$mount('#app');
