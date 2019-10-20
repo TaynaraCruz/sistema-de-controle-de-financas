@@ -7,6 +7,7 @@
 | `house/[id]` | | `house`: object | Query house by id. |
 | `house/index` | | | |
 | `house/new` | `name`: string | `created`: string\|number | Create new house. Return house id created. Must be authenticated. |
+| `livein/new` | `userId`: string\|number<br>`houseId`: string\|number | `userId`: string\|number<br>`houseId`: string\|number | Add user to a house by ids. House admin must be authenticated. |
 | `user/[id]` | | `house`: object | Query user by id. |
 | `user/delete` | `id`: string\|number<br>`confirmation`: boolean |`deleted`: string\|number | Delete user by id. Must be authenticated. Return deleted id. |
 | `user/edit` | `id`: string\| number<br>`name`: string<br>`income`: number<br>`email`: string<br>`password`: string | `user`: object<br>`token`: string | Edit user. Must be authenticated. Return user's object and token. |
