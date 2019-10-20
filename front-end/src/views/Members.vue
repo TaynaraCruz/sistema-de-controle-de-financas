@@ -55,7 +55,7 @@
     <v-col cols="32" sm="36" md="34">
       <v-layout row wrap class="justify-center">
       <v-card-actions>
-        <v-btn primary color="success">
+        <v-btn primary color="success" to="/house">
           Voltar
         </v-btn>
       </v-card-actions>
