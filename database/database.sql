@@ -1,47 +1,57 @@
 CREATE TABLE `User` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `income` decimal NOT NULL,
-  `email` varchar(255) NOT NULL UNIQUE,
-  `password` varchar(255) NOT NULL
-);
-
-CREATE TABLE `LiveIn` (
-  `user_id` int,
-  `house_id` int,
-  PRIMARY KEY(`user_id`,`house_id`)
+    `id` INT AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `income` DECIMAL NOT NULL,
+    `email` VARCHAR(255) UNIQUE NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `House` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `admin_id` int NOT NULL
+    `id` INT AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `admin_id` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`admin_id`)
+        REFERENCES `User` (`id`)
+        ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+CREATE TABLE `LiveIn` (
+    `user_id` INT,
+    `house_id` INT,
+    PRIMARY KEY (`user_id` , `house_id`),
+    FOREIGN KEY (`user_id`)
+        REFERENCES `User` (`id`)
+        ON UPDATE NO ACTION ON DELETE NO ACTION,
+    FOREIGN KEY (`house_id`)
+        REFERENCES `House` (`id`)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE `Expense` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `value` decimal NOT NULL,
-  `house_id` int NOT NULL
+    `id` INT AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL,
+    `date` DATE NOT NULL,
+    `value` DECIMAL NOT NULL,
+    `house_id` INT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`house_id`)
+        REFERENCES `House` (`id`)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE `Payment` (
-  `user_id` int,
-  `house_id` int,
-  `date` date NOT NULL,
-  `value` decimal NOT NULL,
-  PRIMARY KEY(`user_id`,`house_id`)
+    `id` INT AUTO_INCREMENT,
+    `user_id` INT,
+    `house_id` INT,
+    `date` DATE NOT NULL,
+    `value` DECIMAL NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`user_id`)
+        REFERENCES `User` (`id`)
+        ON UPDATE NO ACTION ON DELETE NO ACTION,
+    FOREIGN KEY (`house_id`)
+        REFERENCES `House` (`id`)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
-
-ALTER TABLE `LiveIn` ADD FOREIGN KEY (`user_id`) REFERENCES `User` (`id`);
-
-ALTER TABLE `LiveIn` ADD FOREIGN KEY (`house_id`) REFERENCES `House` (`id`);
-
-ALTER TABLE `House` ADD FOREIGN KEY (`admin_id`) REFERENCES `User` (`id`);
-
-ALTER TABLE `Expense` ADD FOREIGN KEY (`house_id`) REFERENCES `House` (`id`);
-
-ALTER TABLE `Payment` ADD FOREIGN KEY (`user_id`) REFERENCES `User` (`id`);
-
-ALTER TABLE `Payment` ADD FOREIGN KEY (`house_id`) REFERENCES `House` (`id`);
