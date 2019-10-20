@@ -18,6 +18,16 @@
           ></v-text-field>
         </v-col>
       </v-row>
+      <v-row class="justify-center">
+        <v-col cols="4">
+          <v-text-field
+            label="Valor"
+            prepend-icon="mdi-cash-usd"
+            value="0.00"
+            prefix="R$"
+          ></v-text-field>
+        </v-col>
+      </v-row>
     <v-row>
       <v-col cols="12" sm="6" md="4">
         <v-menu

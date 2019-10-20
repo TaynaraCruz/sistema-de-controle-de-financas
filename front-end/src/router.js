@@ -11,6 +11,7 @@ import AddUser from "./views/AddUser.vue";
 import Statistics from "./views/Statistics.vue";
 import Members from "./views/Members.vue";
 import About from "./views/About.vue";
+import House from "./views/House.vue";
 
 Vue.use(Router);
 
@@ -80,6 +81,11 @@ export default new Router({
       path: "/members",
       name: "members",
       component: Members,
+    },
+    {
+      path: "/house",
+      name: "house",
+      component: House,
     },
   ]
 });
