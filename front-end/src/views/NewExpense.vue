@@ -102,22 +102,6 @@
       </v-radio-group>
       </v-row>
       
-    <v-row  justify="center"> 
-      <v-col cols="12" sm="6" >
-          <v-textarea 
-            label="Descrição"
-            auto-grow
-            outlined
-            filled
-            vertical-align: middle
-            align-center
-            rows="3"
-            row-height="35"
-            shaped
-            justify="center"
-          ></v-textarea>
-        </v-col>
-      </v-row>
         
     <v-col cols="32" sm="36" md="34">
       <v-card-actions class="justify-center">

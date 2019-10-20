@@ -20,6 +20,14 @@
         label="E-mail"
         required
       ></v-text-field>
+
+      <v-text-field
+        v-model="value"
+        :rules="valueRules"
+        label="Renda"
+        prefix="R$"
+        required
+      ></v-text-field> 
   
       <v-text-field
         v-model="senha"
