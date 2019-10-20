@@ -74,6 +74,11 @@ export default {
             icon: 'mdi-chart-line',
             text: 'Histórico de Despesas',
         },
+        {
+            to: '/members',
+            icon: 'mdi-account-multiple',
+            text: 'Membros',
+        },
         
         ]
     }),

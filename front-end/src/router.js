@@ -9,6 +9,7 @@ import RegisterPayment from "./views/RegisterPayment.vue";
 import NewExpense from "./views/NewExpense.vue";
 import AddUser from "./views/AddUser.vue";
 import Statistics from "./views/Statistics.vue";
+import Members from "./views/Members.vue";
 
 Vue.use(Router);
 
@@ -72,6 +73,11 @@ export default new Router({
       path: "/statistics",
       name: "statistics",
       component: Statistics,
+    },
+    {
+      path: "/members",
+      name: "members",
+      component: Members,
     },
   ]
 });
