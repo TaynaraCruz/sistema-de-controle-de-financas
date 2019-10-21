@@ -1,8 +1,9 @@
+const h = require('../../lib/headers');
 const db = require('../../lib/db');
 const { sha256, ifAuth, signToken } = require('../../lib/auth');
 const SQL = require('sql-template-strings');
 
-module.exports = ifAuth(async (req, res) => {
+module.exports = h(ifAuth(async (req, res) => {
     if (typeof req.body !== 'object') {
         return res.status(400).json({error: 'invalid request'})
     }
@@ -32,4 +33,4 @@ module.exports = ifAuth(async (req, res) => {
             token: signToken(user),
         });
     }
-});
+}));

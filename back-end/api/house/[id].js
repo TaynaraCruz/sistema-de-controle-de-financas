@@ -1,10 +1,11 @@
+const h = require('../../lib/headers');
 const db = require('../../lib/db');
 const {
     ifAuth
 } = require('../../lib/auth');
 const SQL = require('sql-template-strings');
 
-module.exports = ifAuth(async (req, res) => {
+module.exports = h(ifAuth(async (req, res) => {
     const {
         id
     } = req.query;
@@ -60,4 +61,4 @@ module.exports = ifAuth(async (req, res) => {
             });
         }
     }
-});
+}));

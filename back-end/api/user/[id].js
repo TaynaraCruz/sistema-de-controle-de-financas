@@ -1,8 +1,9 @@
+const h = require('../../lib/headers');
 const db = require('../../lib/db');
 const { ifAuth } = require('../../lib/auth');
 const SQL = require('sql-template-strings');
 
-module.exports = ifAuth(async (req, res) => {
+module.exports = h(ifAuth(async (req, res) => {
     let { id } = req.query;
     let result = await db.query(SQL`select id, name, income, email from User join (SELECT user_id from LiveIn where house_id in (select house_id from LiveIn where user_id=${req.user.id})) sel on id = user_id where user_id = ${id};`);
     if (result.error) {
@@ -14,4 +15,4 @@ module.exports = ifAuth(async (req, res) => {
             user: result[0],
         });
     }
-});
+}));
