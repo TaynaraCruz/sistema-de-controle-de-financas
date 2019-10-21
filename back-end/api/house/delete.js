@@ -29,8 +29,9 @@ module.exports = ifAuth(async (req, res) => {
             id = ${id};
     `);
     if (checkAdmin.error) {
-        return res.status(403).json({
-            error: 'forbidden'
+        return res.status(500).json({
+            error: 'internal server error',
+            details: result.error.toString()
         });
     }
 
