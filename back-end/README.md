@@ -3,6 +3,7 @@
 | Route | Parameters | Return | Comentary |
 |:-|:-|:-|:-|
 | `.` | | | Print "oi". |
+| `expense/[id]` | | `expense`: object | Return expense by id. Resident of the house which the expense belongs must be authenticated. |
 | `login` | `email`: string<br>`password`: string | `user`: object<br>`token`: string | Check email and password combination and return object with user's object and token. |
 | `house/[id]` | | `house`: object<br>`admin`: object | Return informations about house and its admin. Must be authenticated and residente of the house. |
 | `house/delete` | `id`: string\|number | `deleted`: string\|number | Delete a house by id. Return deleted id. Admin must be authenticated. |
