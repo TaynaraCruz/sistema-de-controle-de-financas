@@ -1,13 +1,13 @@
 <template>
-  <ProfilePage />
+    <ProfilePage />
 </template>
 
 <script>
 import ProfilePage from '../components/ProfilePage.vue';
 
 export default {
-  components: {
-    ProfilePage,
-  },
+    components: {
+        ProfilePage,
+    },
 };
 </script>

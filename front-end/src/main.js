@@ -8,12 +8,12 @@ Vue.config.productionTip = false;
 new Vue({
     router,
     vuetify,
-    render: h => h(App),  
+    render: h => h(App),
     data: () => ({
         date: new Date().toISOString().substr(0, 10),
         menu: false,
         modal: false,
         menu2: false,
         dialog: false,
-      }),
+    }),
 }).$mount('#app');
