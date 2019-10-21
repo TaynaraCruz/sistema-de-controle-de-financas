@@ -57,9 +57,9 @@ export default {
                 text: 'Home',
             },
             {
-                to: '/login',
+                to: '/profile',
                 icon: 'mdi-account',
-                text: 'Login',
+                text: 'Perfil',
             },
             {
                 to: '/manage',
@@ -67,45 +67,11 @@ export default {
                 text: 'Gerenciar Casas',
             },
             {
-                to: '/house',
-                icon: 'mdi-castle',
-                text: 'Casa - Página Geral',
-            },
-            {
                 to: '/about',
                 icon: 'mdi-star',
                 text: 'Sobre',
             },
-            {
-                to: '/profile',
-                icon: 'mdi-account',
-                text: 'Perfil',
-            },
-            {
-                to: '/payment',
-                icon: 'mdi-coin',
-                text: 'Registrar Pagamento',
-            },
-            {
-                to: '/newexpense',
-                icon: 'mdi-square-inc-cash',
-                text: 'Nova Despesa',
-            },
-            {
-                to: '/adduser',
-                icon: 'mdi-account-multiple-plus',
-                text: 'Adicionar Usuário',
-            },
-            {
-                to: '/statistics',
-                icon: 'mdi-chart-line',
-                text: 'Histórico de Despesas',
-            },
-            {
-                to: '/members',
-                icon: 'mdi-account-multiple',
-                text: 'Membros',
-            },
+           
         ],
         logged: false,
     }),
@@ -125,7 +91,6 @@ export default {
 
         const checkLogin = () => {
             if (getUser()) {
-                this.$router.push('/');
                 this.logged = true;
             }
             else {

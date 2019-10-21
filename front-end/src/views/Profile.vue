@@ -3,24 +3,13 @@
         <v-row>
             <v-col class="align-center justify-center text-center">
                 <v-avatar :color="color" :size="size">
-                    <span>JG</span>
+                    <span><strong>{{ iniciais }}</strong></span>
                 </v-avatar>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col class="align-center justify-center text-center">
-                <span mt-2 :txtColor="txtColor" :txt-size="txtSize">
-                    {{ nome }}
-                </span>
-                <br />
-                <span mt-2 :txtColor="txtColor" :txt-size="emailSize">
-                    {{ email }}
-                </span>
             </v-col>
         </v-row>
         <v-row justify="space-around">
             <v-col class="align-center justify-center text-center" sm="6">
-                <v-form ref="form" v-model="valid" :lazy-validation="lazy">
+                <v-form ref="form" v-model="valid" >
                     <v-text-field
                         v-model="nome"
                         label="Nome"
@@ -50,6 +39,7 @@
 
                     <v-text-field
                         class="mt-4"
+                        type="password"
                         v-model="senha"
                         placeholder="Não alterado"
                         label="Senha"
@@ -61,6 +51,7 @@
                         <v-text-field
                             v-model="senha2"
                             v-if="senha"
+                            type="password"
                             label="Confirmar senha"
                             prepend-icon="mdi-lock"
                             required
@@ -71,7 +62,7 @@
                         :disabled="false"
                         color="success"
                         class="mr-4"
-                        @click="validate"
+                        @click="save"
                     >
                         Salvar
                     </v-btn>
@@ -82,20 +73,59 @@
 </template>
 
 <script>
+import { getUser } from '../login';
 export default {
     data() {
         return {
-            color: '#c4c4c4',
+            color: 'blue',
             size: 150,
             txtColor: 'white',
             txtSize: 16,
             emailSize: 8,
-            email: 'joao@lyndo.xyz',
+            email: '',
             senha: '',
-            renda: 250.55,
-            nome: 'João Gabriel de Oliveira Bicalho',
+            senha2: '',
+            renda: 0,
+            nome: '',
+            id: 0,
         };
     },
+    computed: {
+        iniciais () {
+            return (this.nome||'-').split(' ').map(g => g[0]).join('');
+        },
+    },
+    async created(){
+        try {
+            let { user } = await this.$root.$request('user');
+            this.nome = user.name;
+            this.renda = user.income;
+            this.email = user.email;
+            this.id = user.id;
+        } catch (err) {
+            alert('deu merda irmão: ' + err.error);
+        }
+    },
+    methods: {
+        async save(){
+            let payload = {
+                id: this.id,
+                name: this.nome,
+                income: this.renda,
+                email: this.email,
+            };
+            if (this.senha){
+                if(this.senha2 !== this.senha){
+                    alert('deu ruim time: senhas não coincidem!');
+                    return;
+                }
+                payload.password = this.senha;
+            }
+            let res = await this.$root.$request('user/edit', payload);
+            alert('deu certo time: usuário alterado com sucesso!');
+        },
+
+    }
 };
 </script>
 <style scoped>
