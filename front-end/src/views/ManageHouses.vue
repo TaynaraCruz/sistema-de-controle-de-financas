@@ -43,9 +43,18 @@
                     </v-chip>
                     </v-card-text>
                 </v-card>
+
+
           </v-item>
         </v-col>
+
       </v-row>
+
     </v-container>
+    <v-row justify="center">
+    <v-btn color="success" fab x-large dark>
+        <v-icon>mdi-plus</v-icon>
+    </v-btn>
+    </v-row>
   </v-item-group>
 </template>
