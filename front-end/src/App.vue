@@ -71,7 +71,6 @@ export default {
                 icon: 'mdi-star',
                 text: 'Sobre',
             },
-           
         ],
         logged: false,
     }),

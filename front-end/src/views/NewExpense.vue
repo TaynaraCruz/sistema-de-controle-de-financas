@@ -1,6 +1,5 @@
 <template>
-    <div id="app">
-        <v-app id="inspire">
+    <v-container>
             <h3 class="display-1 font-weight-bold">
                 <v-row justify="center">
                     <v-flex xs12>
@@ -138,6 +137,5 @@
                 </v-card-actions>
                 <br />
             </form>
-        </v-app>
-    </div>
+        </v-container>
 </template>

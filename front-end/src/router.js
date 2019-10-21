@@ -8,10 +8,10 @@ import ManageHouses from './views/ManageHouses.vue';
 import RegisterPayment from './views/RegisterPayment.vue';
 import NewExpense from './views/NewExpense.vue';
 import AddUser from './views/AddUser.vue';
-import Statistics from './views/Statistics.vue';
-import Members from './views/Members.vue';
+import Statistics from './components/Statistics.vue';
 import About from './views/About.vue';
 import House from './views/House.vue';
+import AddHouse from './views/AddHouse.vue';
 
 Vue.use(Router);
 
@@ -73,14 +73,14 @@ export default new Router({
             component: Statistics,
         },
         {
-            path: '/members',
-            name: 'members',
-            component: Members,
-        },
-        {
             path: '/house',
             name: 'house',
             component: House,
+        },
+        {
+            path: '/AddHouse',
+            name: 'AddHouse',
+            component: AddHouse,
         },
     ],
 });

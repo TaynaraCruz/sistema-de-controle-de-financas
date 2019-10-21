@@ -40,7 +40,7 @@
             </v-row>
         </v-container>
         <v-row justify="center">
-            <v-btn color="success" fab x-large dark>
+            <v-btn color="success"  to="/AddHouse" fab x-large dark>
                 <v-icon>mdi-plus</v-icon>
             </v-btn>
         </v-row>
