@@ -45,6 +45,10 @@ module.exports = ifAuth(async (req, res) => {
                 residents: result
             });
         }
+    } else {
+        return res.status(403).json({
+            error: 'forbidden'
+        });
     }
 
     
