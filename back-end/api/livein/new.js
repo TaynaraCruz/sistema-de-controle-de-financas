@@ -34,20 +34,17 @@ module.exports = ifAuth(async (req, res) => {
             error: 'Internal server error',
             details: result.error.toString()
         });
-    } else if (checkAdminQuery[0].admin_id !== 2) {
+    } else if (checkAdminQuery[0].admin_id !== +req.user.id) {
         return res.status(403).json({
             error: 'forbidden'
         });
     }
 
     const result = await db.query(SQL `
-            INSERT INTO
-                LiveIn(user_id, house_id) 
-            VALUES
-                (
-                    ${userId}, ${houseId}
-                )
-            ;
+        INSERT INTO
+            LiveIn(user_id, house_id) 
+        VALUES
+            (${userId}, ${houseId});
     `);
 
     if (result.error) {
