@@ -23,6 +23,9 @@
             <v-btn icon @click="invertColors">
                 <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
+            <v-btn icon :disabled="!logged" @click="logout">
+                <v-icon>mdi-logout</v-icon>
+            </v-btn>
         </v-app-bar>
 
         <v-content class="fill-height">
@@ -111,6 +114,9 @@ export default {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             window.localStorage.light = '' + !this.$vuetify.theme.dark;
         },
+        logout() {
+            this.$root.$logout();
+        }
     },
     created() {
         if (window.localStorage.light === 'true') {
