@@ -61,7 +61,7 @@ export default {
             this.error = '';
             try {
                 await this.$root.$login(this.email, this.password);
-                this.$router.push('/');
+                this.$router.push('/manage');
             } catch (err) {
                 this.error = err.error;
                 console.log(err)

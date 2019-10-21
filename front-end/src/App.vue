@@ -16,15 +16,23 @@
         <v-app-bar app clipped-left>
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
-                :disabled="!logged"
+                v-if="logged"
             ></v-app-bar-nav-icon>
+            <v-btn
+                icon
+                to="/"
+                v-else
+            ><v-icon>mdi-home</v-icon></v-btn>
             <v-toolbar-title>Housefly</v-toolbar-title>
             <div class="flex-grow-1"></div>
             <v-btn icon @click="invertColors">
                 <v-icon>mdi-invert-colors</v-icon>
             </v-btn>
-            <v-btn icon :disabled="!logged" @click="logout">
+            <v-btn icon v-if="logged" @click="logout">
                 <v-icon>mdi-logout</v-icon>
+            </v-btn>
+            <v-btn icon v-else to="/login">
+                <v-icon>mdi-login</v-icon>
             </v-btn>
         </v-app-bar>
 
@@ -91,9 +99,10 @@ export default {
         const checkLogin = () => {
             if (getUser()) {
                 this.logged = true;
+                this.drawer = null;
             }
             else {
-                this.$router.push({name: 'login'});
+                this.$router.push({name: 'home'});
                 this.logged = this.drawer = false;
             }
         }

@@ -73,7 +73,7 @@ export default new Router({
             component: Statistics,
         },
         {
-            path: '/house',
+            path: '/house/:id',
             name: 'house',
             component: House,
         },
