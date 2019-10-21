@@ -1,22 +1,38 @@
-const db = require('../../lib/db')
-const SQL = require('sql-template-strings')
+const db = require('../../lib/db');
+const {
+    ifAuth
+} = require('../../lib/auth');
+const SQL = require('sql-template-strings');
 
-module.exports = async (req, res) => {
-  let page = parseInt(req.query.page) || 1
-  const limit = parseInt(req.query.limit) || 9
-  if (page < 1) page = 1
-  const houses = await db.query(SQL`
-      SELECT *
-      FROM House
-      ORDER BY id
-      LIMIT ${(page - 1) * limit}, ${limit}
-    `)
-  const count = await db.query(SQL`
-      SELECT COUNT(*)
-      AS housesCount
-      FROM House
-    `)
-  const { housesCount } = count[0]
-  const pageCount = Math.ceil(housesCount / limit)
-  res.status(200).json({ houses, pageCount, page })
-}
+module.exports = ifAuth(async (req, res) => {
+    if (typeof req.body !== 'object') {
+        return res.status(400).json({
+            error: 'invalid request'
+        })
+    }
+
+    const result = await db.query(SQL `
+        SELECT 
+            *
+        FROM
+            House
+        WHERE
+            id IN (SELECT 
+                    house_id
+                FROM
+                    LiveIn
+                WHERE
+                    user_id = 1);
+    `);
+
+    if (result.error) {
+        return res.status(500).json({
+            error: 'internal server error',
+            details: result.error.toString()
+        });
+    } else {
+        return res.status(200).json({
+            houses: result
+        });
+    }
+});

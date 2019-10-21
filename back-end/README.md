@@ -6,7 +6,7 @@
 | `login` | `email`: string<br>`password`: string | `user`: object<br>`token`: string | Check email and password combination and return object with user's object and token. |
 | `house/[id]` | | `house`: object | Query house by id. |
 | `house/delete` | `id`: string\|number | `deleted`: string\|number | Delete a house by id. Return deleted id. Admin must be authenticated. |
-| `house/index` | | | |
+| `house/index` | | `houses`: object | Return the houses where the user lives. Must be authenticated. |
 | `house/new` | `name`: string | `created`: string\|number | Create new house. Return house id created. Must be authenticated. |
 | `livein/new` | `userId`: string\|number<br>`houseId`: string\|number | `userId`: string\|number<br>`houseId`: string\|number | Add user to a house by ids. House admin must be authenticated. |
 | `user/[id]` | | `house`: object | Query user by id. |
