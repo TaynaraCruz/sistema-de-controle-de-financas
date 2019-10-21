@@ -41,6 +41,17 @@
                     <br />
                     <br />
 
+                    <v-carousel
+                        :show-arrows="false"
+                        height="800px"
+                        width="100px"
+                    >
+                        <v-carousel-item
+                            v-for="(item, i) in items"
+                            :key="i"
+                            :src="item.src"
+                        ></v-carousel-item>
+                    </v-carousel>
                 </p>
             </v-flex>
         </v-layout>

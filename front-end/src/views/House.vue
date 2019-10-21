@@ -9,7 +9,7 @@
                     height="200"
                 ></v-img>
             </v-flex>
-            <h3 class="display-1 font-weight-bold">{{ house.name }}</h3>
+            <h3 class="display-1 font-weight-bold">Página Geral da Casa - Nome da Casa</h3>
         </v-row>
         
         <v-container>
@@ -83,20 +83,6 @@ export default {
     data: () => ({
         pago: 50,
         tab: 'tab-1',
-        house: {
-            name: '-',
-            id: 0,
-            admin_id: 0,
-        }
-
     }),
-    async created(){
-        try {
-            let { house } = await this.$root.$request(`house/${this.$route.params.id}`);
-            this.house = house;
-        } catch (err) {
-            alert(err.error);
-        }
-    }
 }
 </script>
