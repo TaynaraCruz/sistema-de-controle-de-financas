@@ -17,7 +17,7 @@
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
             ></v-app-bar-nav-icon>
-            <v-toolbar-title>Menu</v-toolbar-title>
+            <v-toolbar-title>Housefly</v-toolbar-title>
             <div class="flex-grow-1"></div>
             <v-btn icon @click="invertColors">
                 <v-icon>mdi-invert-colors</v-icon>
@@ -33,8 +33,8 @@
             <div class="text-center" style="width: 100%;">
                 &copy; {{ new Date().getFullYear() }} —
                 <strong>Alguns direitos reservados</strong
-                ><a class="footer-a" href="https://011235.xyz" target="_blank"
-                    ><strong></strong
+                ><a class="footer-a" href="https://011235.xyz" target="_blank">
+                <strong></strong
                 ></a>
             </div>
         </v-footer>
