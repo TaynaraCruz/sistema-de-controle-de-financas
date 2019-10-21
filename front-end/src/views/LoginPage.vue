@@ -1,5 +1,4 @@
 <template>
-    <v-app id="inspire">
         <v-container class="fill-height" fluid>
             <v-layout text-center wrap>
                 <v-row align="center" justify="center">
@@ -42,7 +41,6 @@
                 </v-row>
             </v-layout>
         </v-container>
-    </v-app>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
-    <v-container>
+    <div id="app">
+        <v-app id="inspire">
             <h3 class="display-1 font-weight-bold">
                 <v-row justify="center">
                     <v-flex xs12>
@@ -10,20 +11,24 @@
                             height="200"
                         ></v-img>
                     </v-flex>
-                    Incluir Morador
+                    Adicionar Casa
                 </v-row>
             </h3>
             <p></p>
-            <p class="text-center">
-                Para incluir um membro a casa atual é necessário fornecer o
-                login do usuário a ser adicionado.
-            </p>
             <form>
                 <v-row justify="center">
                     <v-col cols="4">
                         <v-text-field
-                            label="Nome do novo membro"
-                            prepend-icon="mdi-account-plus"
+                            label="Nome da casa"
+                            prepend-icon="mdi-home"
+                        ></v-text-field>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="4">
+                        <v-text-field
+                            label="Descrição da casa"
+                            prepend-icon="mdi-alphabetical"
                         ></v-text-field>
                     </v-col>
                 </v-row>
@@ -38,11 +43,12 @@
                         </v-btn>
                     </v-card-actions>
                     <v-card-actions class="justify-center">
-                        <v-btn primary color="success" to="/house">
+                        <v-btn primary color="success" to="/manage">
                             Voltar
                         </v-btn>
                     </v-card-actions>
                 </v-col>
             </form>
-        </v-container>
+        </v-app>
+    </div>
 </template>

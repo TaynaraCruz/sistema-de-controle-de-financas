@@ -1,6 +1,5 @@
 <template>
-    <div id="app">
-        <v-app id="inspire">
+    <v-container>
             <h3 class="display-1 font-weight-bold">
                 <v-row justify="center">
                     <v-flex xs12>
@@ -52,11 +51,6 @@
                 <div class="text-center">
                     <v-col cols="32" sm="36" md="34">
                         <v-layout row wrap class="justify-center">
-                            <v-card-actions>
-                                <v-btn primary color="success" to="/house">
-                                    Voltar
-                                </v-btn>
-                            </v-card-actions>
                             <v-card-actions class="justify-center">
                                 <v-btn primary color="warning" to="/payment">
                                     Registrar Pagamento
@@ -71,6 +65,5 @@
                     </v-col>
                 </div>
             </form>
-        </v-app>
-    </div>
+    </v-container>
 </template>

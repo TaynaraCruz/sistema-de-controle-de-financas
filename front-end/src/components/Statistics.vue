@@ -35,12 +35,6 @@
                         ></apexchart>
                     </v-card-text>
                 </v-card>
-
-                <v-card-actions class="justify-center">
-                    <v-btn primary color="success" to="/house">
-                        Voltar
-                    </v-btn>
-                </v-card-actions>
             </form>
         </v-app>
     </div>
