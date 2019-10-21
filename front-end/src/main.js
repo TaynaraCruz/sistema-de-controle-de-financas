@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
 
-import { login } from './api';
+import { login, request } from './api';
 import { cleanUser } from './login';
 
 Vue.config.productionTip = false;
@@ -22,11 +22,27 @@ new Vue({
     methods: {
         async $login(email, password) {
             await login(email, password);
-            this.$root.emit('chlogin');
+            this.$root.$emit('chlogin');
         },
         async $logout() {
             cleanUser();
-            this.$root.emit('chlogin');
+            this.$root.$emit('chlogin');
+        },
+
+        /**
+         * Chama uma função REST da api
+         * @param {string} restFn função rest a ser executada. ex.: 'login', 'user/new'
+         * @param {object} body corpo da requisição
+         */
+        async $request(restFn, body) {
+            try {
+                return await request(restFn, body);
+            } catch (err) {
+                if (err.status === 401) {
+                    this.$root.$logout();
+                }
+                throw err;
+            }
         },
     },
 }).$mount('#app');

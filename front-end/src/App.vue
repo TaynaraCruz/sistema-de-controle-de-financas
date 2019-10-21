@@ -16,11 +16,15 @@
         <v-app-bar app clipped-left>
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
+                :disabled="!logged"
             ></v-app-bar-nav-icon>
-            <v-toolbar-title>Menu</v-toolbar-title>
+            <v-toolbar-title>Housefly</v-toolbar-title>
             <div class="flex-grow-1"></div>
             <v-btn icon @click="invertColors">
                 <v-icon>mdi-invert-colors</v-icon>
+            </v-btn>
+            <v-btn icon :disabled="!logged" @click="logout">
+                <v-icon>mdi-logout</v-icon>
             </v-btn>
         </v-app-bar>
 
@@ -33,8 +37,8 @@
             <div class="text-center" style="width: 100%;">
                 &copy; {{ new Date().getFullYear() }} —
                 <strong>Alguns direitos reservados</strong
-                ><a class="footer-a" href="https://011235.xyz" target="_blank"
-                    ><strong></strong
+                ><a class="footer-a" href="https://011235.xyz" target="_blank">
+                <strong></strong
                 ></a>
             </div>
         </v-footer>
@@ -42,6 +46,7 @@
 </template>
 
 <script>
+import { getUser } from './login';
 export default {
     data: () => ({
         drawer: null,
@@ -77,17 +82,34 @@ export default {
                 text: 'Perfil',
             },
         ],
+        logged: false,
     }),
     methods: {
         invertColors() {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             window.localStorage.light = '' + !this.$vuetify.theme.dark;
         },
+        logout() {
+            this.$root.$logout();
+        }
     },
     created() {
         if (window.localStorage.light === 'true') {
             this.$vuetify.theme.dark = false;
         }
+
+        const checkLogin = () => {
+            if (getUser()) {
+                this.$router.push('/');
+                this.logged = true;
+            }
+            else {
+                this.$router.push({name: 'login'});
+                this.logged = this.drawer = false;
+            }
+        }
+        this.$root.$on('chlogin', () => checkLogin());
+        checkLogin();
     },
 };
 </script>

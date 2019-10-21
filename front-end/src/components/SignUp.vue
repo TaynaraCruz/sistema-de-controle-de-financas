@@ -1,6 +1,5 @@
 <template>
-    <div id="app">
-        <v-app id="inspire">
+    <v-container>
             <v-form ref="form" v-model="valid" lazy-validation>
                 <v-text-field
                     v-model="name"
@@ -91,6 +90,17 @@
                     Reset Form
                 </v-btn>
             </v-form>
-        </v-app>
-    </div>
+        </v-container>
 </template>
+
+<script>
+import { getUser } from '../login';
+
+export default {
+    beforeCreate() {
+        if (getUser()) {
+            this.$router.replace('/');
+        }
+    }
+}
+</script>

@@ -13,28 +13,29 @@
                             <v-card-text>
                                 <v-form>
                                     <v-text-field
-                                        label="Login"
-                                        name="login"
+                                        v-model="email"
+                                        label="Email"
                                         prepend-icon="mdi-account"
                                         type="text"
                                     >
                                     </v-text-field>
 
                                     <v-text-field
+                                        v-model="password"
                                         id="password"
                                         label="Password"
-                                        name="password"
                                         prepend-icon="mdi-lock"
                                         type="password"
                                     ></v-text-field>
                                 </v-form>
+                                <p :v-if="error">{{error}}</p>
                             </v-card-text>
                             <v-card-actions>
                                 <v-btn color="success" to="/SignUp">
                                     SignUp
                                 </v-btn>
                                 <div class="flex-grow-1"></div>
-                                <v-btn color="gray darken-2">Login</v-btn>
+                                <v-btn color="gray darken-2" @click="login">Login</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-col>
@@ -44,12 +45,32 @@
 </template>
 
 <script>
+import { getUser } from '../login';
 export default {
     props: {
         source: String,
     },
     data: () => ({
         drawer: null,
+        email: '',
+        password: '',
+        error: '',
     }),
+    methods: {
+        async login() {
+            this.error = '';
+            try {
+                await this.$root.$login(this.email, this.password);
+            } catch (err) {
+                this.error = err.error;
+                console.log(err)
+            }
+        }
+    },
+    beforeCreate() {
+        if (getUser()) {
+            this.$router.replace('/');
+        }
+    }
 };
 </script>
