@@ -4,7 +4,7 @@
 |:-|:-|:-|:-|
 | `index` | | | Print "oi". |
 | `login` | `email`: string<br>`password`: string | `user`: object<br>`token`: string | Check email and password combination and return object with user's object and token. |
-| `house/[id]` | | `house`: object | Query house by id. |
+| `house/[id]` | | `house`: object<br>`admin`: object | Return informations about house and its admin. Must be authenticated and residente of the house. |
 | `house/delete` | `id`: string\|number | `deleted`: string\|number | Delete a house by id. Return deleted id. Admin must be authenticated. |
 | `house/new` | `name`: string | `created`: string\|number | Create new house. Return house id created. Must be authenticated. |
 | `livein/[id]` | | `residents`: object | Return the users residents of a house by id. |
