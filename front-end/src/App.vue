@@ -16,6 +16,7 @@
         <v-app-bar app clipped-left>
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
+                :disabled="!logged"
             ></v-app-bar-nav-icon>
             <v-toolbar-title>Housefly</v-toolbar-title>
             <div class="flex-grow-1"></div>
@@ -42,6 +43,7 @@
 </template>
 
 <script>
+import { getUser } from './login';
 export default {
     data: () => ({
         drawer: null,
@@ -102,6 +104,7 @@ export default {
                 text: 'Membros',
             },
         ],
+        logged: false,
     }),
     methods: {
         invertColors() {
@@ -113,6 +116,19 @@ export default {
         if (window.localStorage.light === 'true') {
             this.$vuetify.theme.dark = false;
         }
+
+        const checkLogin = () => {
+            if (getUser()) {
+                this.$router.push('/');
+                this.logged = true;
+            }
+            else {
+                this.$router.push({name: 'login'});
+                this.logged = this.drawer = false;
+            }
+        }
+        this.$root.$on('chlogin', () => checkLogin());
+        checkLogin();
     },
 };
 </script>

@@ -39,7 +39,7 @@ new Vue({
                 return await request(restFn, body);
             } catch (err) {
                 if (err.status === 401) {
-                    this.$logout();
+                    this.$root.$logout();
                 }
                 throw err;
             }
