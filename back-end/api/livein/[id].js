@@ -5,41 +5,35 @@ const {
 const SQL = require('sql-template-strings');
 
 module.exports = ifAuth(async (req, res) => {
-    if (typeof req.body !== 'object') {
-        return res.status(400).json({
-            error: 'invalid request'
-        })
-    }
-
     const {
         id
-    } = req.body;
-    if (!id) {
-        return res.status(400).json({
-            error: 'incomplete form'
-        });
-    }
+    } = req.query;
 
-    const checkAdmin = await db.query(SQL `
-        SELECT
-            admin_id
+    const checkResident = await db.query(SQL `
+        SELECT 
+            COUNT(*) as count
         FROM
-            House
+            LiveIn
         WHERE
-            id = ${id};
-    `);
-    if (checkAdmin.error) {
+            user_id = ${+req.user.id} AND house_id = ${id};
+    `)
+    if (checkResident.error) {
         return res.status(500).json({
             error: 'internal server error',
             details: result.error.toString()
         });
     }
 
-    if (checkAdmin[0].admin_id === +req.user.id) {
+    if (checkResident[0].count === 1) {
         const result = await db.query(SQL `
-            DELETE FROM House
+            SELECT 
+                id, name, income, email
+            FROM
+                User
+                    INNER JOIN
+                LiveIn ON User.id = LiveIn.user_id
             WHERE
-                id = ${id};
+                house_id = ${id};
         `);
         if (result.error) {
             return res.status(500).json({
@@ -48,13 +42,10 @@ module.exports = ifAuth(async (req, res) => {
             });
         } else {
             return res.status(200).json({
-                deleted: id
+                residents: result
             });
         }
-    } else {
-        return res.status(403).json({
-            error: 'forbidden'
-        });
     }
 
+    
 });
