@@ -92,7 +92,7 @@ export default {
     },
     computed: {
         iniciais () {
-            return (this.nome||'-').split(' ').map(g => g[0]).join('');
+            return (this.nome||'-').split(' ').map(g => g.length > 2 ? g[0] : '').join('');
         },
     },
     async created(){
