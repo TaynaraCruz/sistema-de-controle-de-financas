@@ -39,7 +39,7 @@ module.exports = h(ifAuth(async (req, res) => {
                     INNER JOIN
                 User ON User.id = House.admin_id
             WHERE
-                House.id = 14;
+                House.id = ${id};
         `);
         if (result.error) {
             return res.status(500).json({
@@ -61,4 +61,7 @@ module.exports = h(ifAuth(async (req, res) => {
             });
         }
     }
+    return res.status(403).json({
+        error: 'forbidden',
+    });
 }));
