@@ -8,10 +8,10 @@ module.exports = ifAuth(async (req, res) => {
     if (typeof req.body !== 'object') {
         return res.status(400).json({
             error: 'invalid request'
-        })
+        });
     }
 
-    const result = await db.query(SQL `
+    const checkResident = await db.query(SQL `
         SELECT 
             *
         FROM
@@ -22,7 +22,7 @@ module.exports = ifAuth(async (req, res) => {
                 FROM
                     LiveIn
                 WHERE
-                    user_id = 1);
+                    user_id = ${+req.user.id});
     `);
 
     if (result.error) {
