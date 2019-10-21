@@ -1,39 +1,37 @@
 <template>
     <v-container>
-            <v-form ref="form" v-model="valid" lazy-validation>
+            <v-form ref="form">
                 <v-text-field
                     v-model="name"
                     :counter="10"
-                    :rules="nameRules"
                     label="Nome"
                     required
                 ></v-text-field>
 
                 <v-text-field
                     v-model="email"
-                    :rules="emailRules"
+                    type="email"
                     label="E-mail"
                     required
                 ></v-text-field>
 
                 <v-text-field
-                    v-model="value"
-                    :rules="valueRules"
+                    v-model="income"
                     label="Renda"
                     prefix="R$"
                     required
                 ></v-text-field>
 
                 <v-text-field
-                    v-model="senha"
-                    :rules="senha"
+                    v-model="password"
+                    type="password"
                     label="Senha"
                     required
                 ></v-text-field>
 
                 <v-text-field
                     v-model="confirmar_senha"
-                    :rules="confirmar_senha"
+                    type="password"
                     label="Confirmar a Senha"
                     required
                 ></v-text-field>
@@ -52,7 +50,6 @@
                             Termos de uso
                         </v-btn>
                     </template>
-
                     <v-card>
                         <v-card-title
                             class="headline blue lighten-1"
@@ -81,26 +78,65 @@
                 <br />
                 <br />
                 <br />
-
+                <p :v-if="error">{{error}}</p>
                 <v-btn color="success" class="mr-4" @click="validate">
-                    Validate
+                    Criar Conta
                 </v-btn>
 
-                <v-btn color="error" class="mr-4" @click="reset">
-                    Reset Form
-                </v-btn>
             </v-form>
         </v-container>
 </template>
 
+
 <script>
 import { getUser } from '../login';
-
 export default {
+    props: {
+        source: String,
+    },
+    data: () => ({
+        drawer: null,
+        email: '',
+        password: '',
+        name: '',
+        checkbox: false,
+        confirmar_senha: '',
+        income: 0,
+        error: '',
+        on: false,
+        dialog: false,
+    }),
+    methods: {
+        async validate(){
+            try {
+                this.error = '';
+                if(this.password === this.confirmar_senha){
+                    if(this.checkbox){
+                        await this.$root.$request('user/new', {
+                            name: this.name,
+                            income: this.income,
+                            email : this.email,
+                            password: this.password,
+                        });
+                        await this.$root.$login(this.email, this.password);
+                        alert("Usuário Criado com Sucesso");
+                        this.$router.push('/');
+                    }else{
+                        this.error = 'Deve concordar com os termos de uso';
+                    }
+                }else{
+                    this.error = 'Senhas não coincidem';
+                }
+            } catch (err) {
+                this.error = err.error;
+                console.log(err)
+            }
+        }
+    },
     beforeCreate() {
         if (getUser()) {
             this.$router.replace('/');
         }
     }
-}
+};
 </script>
