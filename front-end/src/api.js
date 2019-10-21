@@ -1,5 +1,5 @@
 import apiUrl from './apiUrl';
-import { setUser, getToken } from './login';
+import { setUser, getToken, cleanUser } from './login';
 
 /**
  * Chama uma função REST da api
@@ -25,10 +25,15 @@ export async function request(restFn, body) {
 
         let json = await result.json();
 
-        if (result.ok && !json.error) { // deu certo
+        if (result.ok && !json.error) {
+            // deu certo
             return json;
         } else {
+            if (result.status === 401) {
+                cleanUser();
+            }
             error = json;
+            error.status = result.status;
         }
     } catch (err) {
         console.log(err);
