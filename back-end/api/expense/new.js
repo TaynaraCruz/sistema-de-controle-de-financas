@@ -29,8 +29,8 @@ module.exports = h(ifAuth(async (req, res) => {
     `);
     if (checkAdminQuery.error) {
         return res.status(500).json({
-            error: 'Internal server error',
-            details: result.error.toString()
+            error: 'internal server error',
+            details: checkAdminQuery.error.toString()
         });
     } else if (checkAdminQuery[0].admin_id !== +req.user.id) {
         return res.status(403).json({
@@ -46,7 +46,7 @@ module.exports = h(ifAuth(async (req, res) => {
     `);
     if (result.error) {
         return res.status(500).json({
-            error: 'Internal server error',
+            error: 'internal server error',
             details: result.error.toString()
         });
     } else {
