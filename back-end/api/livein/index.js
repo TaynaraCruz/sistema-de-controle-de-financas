@@ -26,14 +26,14 @@ module.exports = h(ifAuth(async (req, res) => {
                     user_id = ${+req.user.id});
     `);
 
-    if (result.error) {
+    if (checkResident.error) {
         return res.status(500).json({
             error: 'internal server error',
-            details: result.error.toString()
+            details: checkResident.error.toString()
         });
     } else {
         return res.status(200).json({
-            houses: result
+            houses: checkResident
         });
     }
 }));

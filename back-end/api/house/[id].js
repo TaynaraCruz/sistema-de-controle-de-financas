@@ -21,7 +21,7 @@ module.exports = h(ifAuth(async (req, res) => {
     if (checkResident.error) {
         return res.status(500).json({
             error: 'internal server error',
-            details: result.error.toString()
+            details: checkResident.error.toString()
         });
     }
 

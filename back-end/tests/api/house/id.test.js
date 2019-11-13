@@ -1,4 +1,4 @@
-//Taynara Lorraine Marcelino da Cruz
+//Taynara Lorraine Marcelino da Cruz e João Vítor Campos Teixeira
 
 const mockDB = new (require('../../__mocks__/db'))();
 jest.mock('../../../lib/db', () => mockDB);
@@ -76,4 +76,23 @@ describe('house/id', () => {
         expect(res.json).toBeCalledWith({ error: 'internal server error', details: 'PROTOCOL_TIMEDOUT_CONNECTION' });
     });
 
+    test('should 500 internal server error', async () => {
+        const date = new Date();
+        mockDB.__setResult(
+            { error: 'PROTOCOL_TIMEDOUT_CONNECTION' },
+            [{ house_id: 1, house_name: 'Casa', admin_id: 1, user_name: 'Tay', user_income: 20, user_email: 'tay@t' }],
+        )
+
+        const req = authRequest({
+            query: {
+                id: 1,
+            },
+        });
+
+        const res = response();
+
+        await idHandler(req, res);
+        expect(res.status).toBeCalledWith(500);
+        expect(res.json).toBeCalledWith({ error: 'internal server error', details: 'PROTOCOL_TIMEDOUT_CONNECTION' });
+    });
 });
