@@ -18,10 +18,10 @@ function verifyToken (token) {
 }
 
 function auth (req) {
-    let authorization = req.headers.authorization || '';
+    let authorization = (req.headers && req.headers.authorization) || '';
     let [type, token] = authorization.split(' ');
 
-    if (!authorization && req.query.bearer) {
+    if (!authorization && req.query && req.query.bearer) {
         type = 'Bearer';
         token = req.query.bearer;
     }
