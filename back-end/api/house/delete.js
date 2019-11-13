@@ -32,7 +32,7 @@ module.exports = h(ifAuth(async (req, res) => {
     if (checkAdmin.error) {
         return res.status(500).json({
             error: 'internal server error',
-            details: result.error.toString()
+            details: checkAdmin.error.toString()
         });
     }
 
